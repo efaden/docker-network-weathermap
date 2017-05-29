@@ -24,6 +24,9 @@ fi
 # Copy default config if config empty
 if [ ! -d  /config/configs ]; then
 	mkdir -p /config/configs
+fi
+
+if [ ! "$(ls -A /config/configs/)" ]; then
 	cp -rf /var/www/weathermap/configs/* /config/configs/
 fi
 
