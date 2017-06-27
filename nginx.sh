@@ -14,7 +14,11 @@ if [ ! -d "$WEATHERMAP" ]; then
     chown -R nobody:users $WEATHERMAP
     sed -i 's/^\$ENABLED=false;/\$ENABLED=true;/g' $WEATHERMAP/editor.php
     mv /var/www/map-poller.php /var/www/weathermap/
+    cd weathermap/lib/datasources
+    wget https://raw.githubusercontent.com/guequierre/php-weathermap-influxdb/master/WeatherMapDataSource_influxdb.php
 fi
+
+cd
 
 # Check for config directory
 if [ ! -d /config ]; then
